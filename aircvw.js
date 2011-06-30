@@ -204,7 +204,7 @@ function rerenderLogData() {
             lineCount++;
             var li = document.createElement('li');
             li.appendChild(document.createTextNode(msg[1]+' | '+body));
-            li.innerHTML = li.innerHTML.replace(Aircvw.compiledRegexs.url, '<a href="$&">$&</a>');
+            li.innerHTML = li.innerHTML.replace(Aircvw.compiledRegexs.url, '<a href="$&" target="_blank">$&</a>');
             li.className = 'msg-'+msg[0];
             li.id = 'm'+DateCurrent.toIDString() + "-" + i;
             result.appendChild(li);
