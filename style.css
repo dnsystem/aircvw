@@ -59,7 +59,7 @@
 }
 #ControlerContainer p#ControlerContainerSwitch a:link,
 #ControlerContainer p#ControlerContainerSwitch a:visited {
-	padding:
+/*	padding:
 		0.2em;
 	margin:
 		0;
@@ -69,6 +69,14 @@
 		#002856;
 	display:
 		block;
+*/
+-webkit-border-radius: 10px;
+-webkit-box-shadow: rgba(0,0,0,.1) 1px 1px 3px; background: #02488D;
+background-image: -webkit-gradient(linear, 0% 0%, 0% 100%,
+        from(rgba(255, 255, 255, 0.4)),
+        to(rgba(255, 255, 255, 0.1)),
+        color-stop(.5,rgba(230, 230, 230, 0.3)),
+        color-stop(.5,rgba(230, 230, 230, 0.2)));
 }
 
 form#ControlPanelForm {
@@ -110,11 +118,15 @@ body {
 
 #result {
 	padding:
-		1em 1em 1em 2em;
+/*		1em 1em 1em 2em;*/
+    0;
 	border:
 		1px solid #c0c0c0;
 	width:
-		90%;
+/*		90%;*/
+100%;
+word-break: break-all;
+list-style-type: none;
 }
 
 #content {
@@ -125,7 +137,8 @@ body {
 	top:
 		2em;
 	margin:
-		0 2em 2em 2em;
+/*		0 2em 2em 2em;*/
+        0;
 	_margin-top:
 		2em;
 }
@@ -135,12 +148,15 @@ body {
 .msg-part{
 	color:
 		#c0c0c0;
+    font-size:
+         50%;
 }
 
 .msg-mode,
 .msg-nick {
 	color:
 		#96c79a;
+font-size: 50%;
 }
 
 .msg-notice {

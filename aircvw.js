@@ -15,7 +15,7 @@ var Aircvw = {
     _logData       : null,
     _logDataLines  : null,
     _logParsedData : null,
-    _version       : "$Id: view.html 16 2006-03-02 15:02:14Z mayuki $",
+    _version       : null,
 
     //
     // public
@@ -27,7 +27,7 @@ var Aircvw = {
     highlightTimerId    : -1,
     highlightLineNumber : -1,
     searchMaxLineCount  : 1000,
-    reverseTimeline     : true,
+    reverseTimeline     : false,
 
     /**
      * ログのテキストデータ
@@ -204,7 +204,7 @@ function rerenderLogData() {
             lineCount++;
             var li = document.createElement('li');
             li.appendChild(document.createTextNode(msg[1]+' | '+body));
-            li.innerHTML = li.innerHTML.replace(Aircvw.compiledRegexs.url, '<a href="$&" target="_blank">$&</a>');
+            li.innerHTML = li.innerHTML.replace(Aircvw.compiledRegexs.url, '<a href="$&" target="_blank">LINK</a>');
             li.className = 'msg-'+msg[0];
             li.id = 'm'+DateCurrent.toIDString() + "-" + i;
             result.appendChild(li);
