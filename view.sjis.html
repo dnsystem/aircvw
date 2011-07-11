@@ -1,8 +1,5 @@
-<!--
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
--->
-<html>
-	
+<!DOCTYPE html>
+<html lang="ja">
 <head>
 <title>aircvw: init</title>
 <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
@@ -16,7 +13,7 @@
 
 <body onload="main()">
 <div id="ControlerContainer">
-	<p id="ControlerContainerSwitch"><a href="javascript:optionExpand();">検索と表示のオプション &raquo;</a></p>
+	<p id="ControlerContainerSwitch"><a href="javascript:optionExpand();" class="btnTypeA">検索と表示のオプション</a></p>
 	<form id="ControlPanelForm" name="ControlPanelForm" onsubmit="startSearch(); return false;">
 		<fieldset>
 			<legend>ページ内移動</legend>
@@ -50,9 +47,16 @@
 
 
 <div id="content">
-	<h1 id="head">aircvw: uninitialized.</h1>
-	<p><a id="prev" href="#" onclick="prev(); return false;">Prev</a> | <a id="next" href="#" onclick="next(); return false;">Next</a></p>
-	<ul id="result">
+<div class="toolbarBox">
+<h1 id="head" class="toolbar">aircvw: uninitialized.</h1>
+        <nav>
+            <ul>
+                <li class="toolBtnTypeA"><a id="prev" class="toolBtnArr" href="#" onclick="prev(); return false;">Prev</a></li>
+                <li class="toolBtnTypeB"><a id="next" class="toolBtnArrR" href="#" onclick="next(); return false;">Next</a></li>
+            </ul>
+        </nav>
+</div>        
+    <ul id="result">
 		<li>uninitialized</li>
 	</ul>
 	<address id="bottom"></address>
