@@ -144,23 +144,23 @@ list-style-type: none;
 		2em;
 }
 
-.msg-join,
-.msg-quit,
-.msg-part{
+.msg-JOIN,
+.msg-QUIT,
+.msg-PART{
 	color:
 		#c0c0c0;
     font-size:
          50%;
 }
 
-.msg-mode,
-.msg-nick {
+.msg-MODE,
+.msg-NICK {
 	color:
 		#96c79a;
 font-size: 50%;
 }
 
-.msg-notice {
+.msg-NOTICE {
 	color:
 		darkgreen;
 }
@@ -594,3 +594,21 @@ a.btnType-s-B {
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
   z-index: -2;
 }
+li.msg-PRIVMSG .time
+{
+color:#555;
+font-size:90%;      
+}
+
+li.msg-PRIVMSG .name
+{
+font-weight:bold;
+}
+li.msg-PRIVMSG .name:after
+{
+content:">"
+}
+li.msg-PRIVMSG.body
+{
+}
+

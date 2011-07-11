@@ -107,59 +107,62 @@ function parseLine(line) {
     if (!matches) { return null; }
     var time = matches[1];
     var body = matches[2];
+    var name = ""
     
     // privmsg
     if (Aircvw.compiledRegexs.privmsg.test(body)) {
-        return ["PRIVMSG", time, "<"+RegExp.$1+"> "+RegExp.$2];
+        //return ["PRIVMSG", time, "<"+RegExp.$1+"> ",RegExp.$2];
+        return ["PRIVMSG", time, RegExp.$1, RegExp.$2];
     }
     // privmsg(self)
     if (Aircvw.compiledRegexs.privmsgself.test(body)) {
-        return ["PRIVMSG", time, ">"+RegExp.$1+"< "+RegExp.$2, true];
+        //return ["PRIVMSG", time, ">"+RegExp.$1+"< ",RegExp.$2, true];
+        return ["PRIVMSG", time, RegExp.$1,RegExp.$2, true];
     }
     
     // mynick -> mynewnick
     // [a-zA-Z0-9\[\]^{}]
     if (Aircvw.compiledRegexs.mynick.test(body)) {
-        return ["NICK", time, "Nick "+RegExp.$1+" → "+RegExp.$2];
+        return ["NICK", time,name, "Nick "+RegExp.$1+" → "+RegExp.$2];
     }
 
     // nick -> newnick
     // [a-zA-Z0-9\[\]^{}]
     if (Aircvw.compiledRegexs.nick.test(body)) {
-        return ["NICK", time, "Nick "+RegExp.$1+" → "+RegExp.$2];
+        return ["NICK", time,name, "Nick "+RegExp.$1+" → "+RegExp.$2];
     }
 
     // join
     if (Aircvw.compiledRegexs.join.test(body)) {
-        return ["JOIN", time, "* "+RegExp.$1+" Join ("+RegExp.$3+"@"+RegExp.$4+")"];
+        return ["JOIN", time,name, "* "+RegExp.$1+" Join ("+RegExp.$3+"@"+RegExp.$4+")"];
     }
 
     // part
     if (Aircvw.compiledRegexs.part.test(body)) {
-        return ["PART", time, "* "+RegExp.$1+" Part ("+RegExp.$3+"@"+RegExp.$4+")"];
+        return ["PART", time,name, "* "+RegExp.$1+" Part ("+RegExp.$3+"@"+RegExp.$4+")"];
     }
 
     // quit
     if (Aircvw.compiledRegexs.quit.test(body)) {
-        return ["QUIT", time, "* "+RegExp.$1+" Quit ("+RegExp.$2+")"];
+        return ["QUIT", time,name, "* "+RegExp.$1+" Quit ("+RegExp.$2+")"];
     }
 
     // mode
     if (Aircvw.compiledRegexs.mode.test(body)) {
-        return ["MODE", time, "* "+RegExp.$1+" Mode "+RegExp.$3];
+        return ["MODE", time,name, "* "+RegExp.$1+" Mode "+RegExp.$3];
     }
     
     // notice
     if (Aircvw.compiledRegexs.notice.test(body)) {
-        return ["NOTICE", time, "("+RegExp.$1+") "+RegExp.$2];
+        return ["NOTICE", time, "("+RegExp.$1+") ",RegExp.$2];
     }
     // notice(self)
     if (Aircvw.compiledRegexs.noticeself.test(body)) {
-        return ["NOTICE", time, ")"+RegExp.$1+"( "+RegExp.$2, true];
+        return ["NOTICE", time, ")"+RegExp.$1+"( ",RegExp.$2, true];
     }
 
     
-    return ["UNKNOWN", time, body];
+    return ["UNKNOWN", time,name, body];
 }
 
 function renderLogData() {
@@ -193,7 +196,9 @@ function rerenderLogData() {
     for (var i = 0; i < lines.length; i++) {
         var msg = lines[i];
 
-        var body = msg[2];
+        var time = msg[1].escapeHTML();
+        var name = msg[2].escapeHTML();
+        var body = msg[3].escapeHTML();
         var ignore = false;
 
         if (ignoreTypesHash[msg[0]]) {
@@ -203,7 +208,8 @@ function rerenderLogData() {
         if (!ignore) {
             lineCount++;
             var li = document.createElement('li');
-            li.appendChild(document.createTextNode(msg[1]+' | '+body));
+            li.innerHTML = '<span class="time">' + time + '</span>' + '<span class="name">' + name + '</span>' + '<span class="body">'+ body + '</span>';
+            // li.appendChild(document.createTextNode(time+name+body));
             li.innerHTML = li.innerHTML.replace(Aircvw.compiledRegexs.url, '<a href="$&" target="_blank">LINK</a>');
             li.className = 'msg-'+msg[0];
             li.id = 'm'+DateCurrent.toIDString() + "-" + i;
