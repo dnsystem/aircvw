@@ -75,7 +75,7 @@ var Aircvw = {
             newline:
                 new RegExp(/(\n|\r\n)/),
             url:
-                new RegExp(/h?ttps?:\/\/[-_.!~*'()a-zA-Z0-9;\/?:@&=+$,%#]+/g),
+                new RegExp(/h?ttps?:\/\/[^<]+/g),
             mynick:
                 new RegExp(/^My nick is changed \((.+) -> (.+)\)$/),
             nick:
