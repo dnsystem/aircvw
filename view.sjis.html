@@ -5,6 +5,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!--link rel="apple-touch-icon"ref="images/icon.png">
+<link rel="apple-touch-startup-image" href="image/nl.png"--> 
 <script type="text/javascript" src="prototype-1.4.0.js"></script>
 <script type="text/javascript" src="aircvw.js?20110629" charset="UTF-8"></script>
 <link rel="stylesheet" href="style.css" type="text/css">
@@ -47,21 +51,30 @@
 
 
 <div id="content">
-<div class="toolbarBox">
-<h1 id="head" class="toolbar">aircvw: uninitialized.</h1>
+    <div class="toolbarBox">
+        <h1 id="head" class="toolbar">aircvw: uninitialized.</h1>
         <nav>
             <ul>
-                <li class="toolBtnTypeA"><a id="prev" class="toolBtnArr" href="#" onclick="prev(); return false;">Prev</a></li>
-                <li class="toolBtnTypeB"><a id="next" class="toolBtnArrR" href="#" onclick="next(); return false;">Next</a></li>
+                <li class="toolBtnTypeA"><a id="prev" class="toolBtn" href="#" onclick="prev(); return false;">Prev</a></li>
+                <li class="toolBtnTypeB"><a id="next" class="toolBtn" href="#" onclick="next(); return false;">Next</a></li>
             </ul>
         </nav>
-</div>        
-    <ul id="result">
-		<li>uninitialized</li>
-	</ul>
-	<address id="bottom"></address>
+    </div>        
+    <div class="listIPhone listTypeA">
+        <ul id="result">
+		    <li>uninitialized</li>
+	    </ul>
+    </div>
+    <div class="toolbarBox">
+        <h1 id="foot" class="toolbar">aircvw</h1>
+        <nav>
+            <ul>
+                <li class="toolBtnTypeA"><a id="prev" class="toolBtn" href="#" onclick="prev(); return false;">Prev</a></li>
+                <li class="toolBtnTypeB"><a id="next" class="toolBtn" href="#" onclick="next(); return false;">Next</a></li>
+            </ul>
+        </nav>
+    </div>        
+<address id="bottom"></address>
 </div>
-
-
 </body>
 </html>

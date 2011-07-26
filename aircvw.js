@@ -75,6 +75,7 @@ var Aircvw = {
             newline:
                 new RegExp(/(\n|\r\n)/),
             url:
+                //new RegExp(/h?ttps?:\/\/[-_.!~*'()a-zA-Z0-9;\/?:@&=+$,%#]+/g),
                 new RegExp(/h?ttps?:\/\/[^<]+/g),
             mynick:
                 new RegExp(/^My nick is changed \((.+) -> (.+)\)$/),
@@ -208,7 +209,7 @@ function rerenderLogData() {
         if (!ignore) {
             lineCount++;
             var li = document.createElement('li');
-            li.innerHTML = '<span class="time">' + time + '</span>' + '<span class="name">' + name + '</span>' + '<span class="body">'+ body + '</span>';
+            li.innerHTML = '<span class="name">' + name + '</span>' + '<span class="time">' + time + '</span>' + '<span class="body">'+ body + '</span>';
             // li.appendChild(document.createTextNode(time+name+body));
             li.innerHTML = li.innerHTML.replace(Aircvw.compiledRegexs.url, '<a href="$&" target="_blank">LINK</a>');
             li.className = 'msg-'+msg[0];
