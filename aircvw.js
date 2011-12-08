@@ -209,7 +209,7 @@ function rerenderLogData() {
         if (!ignore) {
             lineCount++;
             var li = document.createElement('li');
-            li.innerHTML = '<span class="name">' + name + '</span>' + '<span class="time">' + time + '</span>' + '<span class="body">'+ body + '</span>';
+            li.innerHTML = '<span class="ticon"><a href="http://mobile.twitter.com/'+ name +'" target="_blank"><img src="http://img.tweetimag.es/i/'+ name +'_n" width="64" height="64" alt="'+ name +'" /></a></span>' + '<span class="name">' + name + '</span>' + '<span class="time">' + time + '</span>' + '<span class="body">'+ body + '</span>';
             // li.appendChild(document.createTextNode(time+name+body));
             li.innerHTML = li.innerHTML.replace(Aircvw.compiledRegexs.url, '<a href="$&" target="_blank">LINK</a>');
             li.className = 'msg-'+msg[0];
