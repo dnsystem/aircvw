@@ -614,4 +614,9 @@ li.msg-PRIVMSG .body
 {
 display: block;
 }
+.ticon
+a.ticon
+{
+display: inline;
+}
 

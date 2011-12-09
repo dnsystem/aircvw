@@ -1,3 +1,4 @@
+
 //
 // Aircvw Core
 //
@@ -27,7 +28,7 @@ var Aircvw = {
     highlightTimerId    : -1,
     highlightLineNumber : -1,
     searchMaxLineCount  : 1000,
-    reverseTimeline     : false,
+    reverseTimeline     : true,
 
     /**
      * ログのテキストデータ
@@ -209,9 +210,9 @@ function rerenderLogData() {
         if (!ignore) {
             lineCount++;
             var li = document.createElement('li');
-            li.innerHTML = '<span class="ticon"><a href="http://mobile.twitter.com/'+ name +'" target="_blank"><img src="http://img.tweetimag.es/i/'+ name +'_n" width="64" height="64" alt="'+ name +'" /></a></span>' + '<span class="name">' + name + '</span>' + '<span class="time">' + time + '</span>' + '<span class="body">'+ body + '</span>';
+            li.innerHTML = '<span class="ticon"><a href="http://mobile.twitter.com/'+ name +'" target="_blank" class="ticon"><img src="http://img.tweetimag.es/i/'+ name +'_n" width="32" height="32" alt="'+ name +'" class="ticon"/></a></span>' + '<span class="name">' + name + '</span>' + '<span class="time">' + time + '</span>' + '<span class="body">'+ body + '</span>';
             // li.appendChild(document.createTextNode(time+name+body));
-            li.innerHTML = li.innerHTML.replace(Aircvw.compiledRegexs.url, '<a href="$&" target="_blank">LINK</a>');
+           // li.innerHTML = li.innerHTML.replace(Aircvw.compiledRegexs.url, '<a href="$&" target="_blank">LINK</a>');
             li.className = 'msg-'+msg[0];
             li.id = 'm'+DateCurrent.toIDString() + "-" + i;
             result.appendChild(li);
@@ -382,6 +383,7 @@ function loadLog() {
     var result = document.getElementById("result");
     var aReq;
     var url;
+    
     var filename = "";
 
     initialize();
