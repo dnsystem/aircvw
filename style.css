@@ -453,7 +453,9 @@ a.btnType-s-B {
 .listIPhone li {
   position: relative;
   border-bottom: solid 1px #ddd;
+clear: both;
 }
+/*
 .listIPhone li a:not(.noListLink) {
   position: relative;
   display: block;
@@ -464,6 +466,7 @@ a.btnType-s-B {
   text-decoration: none;
   -webkit-box-sizing: border-box;
 }
+*/
 .listIPhone li .floatBtn {
   position: absolute;
   right: 8px;
@@ -477,7 +480,7 @@ a.btnType-s-B {
   border-radius: 10px;
   border: solid 1px #ccc;
 }
-.listIPhone.listTypeA li a:not(.noListLink):after {
+/*.listIPhone.listTypeA li a:not(.noListLink):after {
   content: "";
   position: absolute;
   right: 10px;
@@ -519,7 +522,7 @@ a.btnType-s-B {
   -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4), inset 0 6px 0 rgba(255, 255, 255, 0.3);
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4), inset 0 6px 0 rgba(255, 255, 255, 0.3);
 }
-
+*/
 /* template styles. */
 .template-section {
   padding: 20px;
@@ -619,4 +622,7 @@ a.ticon
 {
 display: inline;
 }
-
+img.ticon
+{
+float: left;
+}
