@@ -28,7 +28,7 @@ var Aircvw = {
     highlightTimerId    : -1,
     highlightLineNumber : -1,
     searchMaxLineCount  : 1000,
-    reverseTimeline     : true,
+    reverseTimeline     : false,
 
     /**
      * ログのテキストデータ
